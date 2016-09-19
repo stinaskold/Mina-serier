@@ -1,0 +1,46 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.main-content {
+  text-align: left;
+  margin-top: 100px;
+}
+
+h1 {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 6em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    padding-right: 20px;
+}
+
+li p {
+  display: inline;
+  margin-right: 15px;
+}
+
+button {
+  margin: 5px;
+}

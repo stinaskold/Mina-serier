@@ -1,45 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="seriesApp">
 <head>
 	<title>Mina serier</title>
   <meta charset="UTF-8">
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
-<body ng-app="seriesApp">
-	<div ng-controller="seriesCtrl">
+<body>
+	<div ng-controller="seriesCtrl" class="row-centered">
     <h1>Mina serier</h1>
     <ul>
-      <li>Mina tv-serier</li>
-      <li>Lägg till tv-serie</li>
+      <li><a href="#/my-series">Mina tv-serier</a></li>
+      <li><a href="#/add-series">Lägg till tv-serie</a></li>
       <li>Sök</li>
     </ul>
-    <h2>Mina tv-serier</h2>
-		<ul>
-			<li ng-repeat="serie in series">
-				{{serie.title}}
-			</li>
-		</ul>
-    <ul>
-      Sortera på:
-      <li>Titel</li>
-      <li>Betyg</li>
-    <ul>
-    <h3>Ser nu</h3>
-    <ul>
-      <li>Downton Abbey <button>Redigera</button><button>Spara</button></li>
-      <li>Gilmore Girls <button>Redigera</button><button>Spara</button></li>
-    </ul>
-    <h3>Vill se</h3>
-    <ul>
-      <li>Broadchurch <button>Redigera</button><button>Spara</button></li>
-      <li>Homeland <button>Redigera</button><button>Spara</button></li>
-    </ul>
-    <h3>Har sett</h3>
-    <ul>
-      <li>The Americans <button>Redigera</button><button>Spara</button></li>
-      <li>Orange is the new black <button>Redigera</button><button>Spara</button></li>
-    </ul>
+		<div class="main-content col-centered">
+			<div ng-view></div>
+		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
@@ -47,5 +25,6 @@
 	<script src="scripts/services.js" type="text/javascript"></script>
 	<script src="scripts/controllers.js" type="text/javascript"></script>
 	<script src="scripts/directives.js" type="text/javascript"></script>
+	<script src="scripts/routes.js" type="text/javascript"></script>
 </body>
 </html>
