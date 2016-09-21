@@ -44,3 +44,12 @@ li p {
 button {
   margin: 5px;
 }
+
+.form-add-series {
+  margin-top: 40px;
+}
+
+.form-add-series input {
+  display: block;
+  margin-bottom: 20px;
+}

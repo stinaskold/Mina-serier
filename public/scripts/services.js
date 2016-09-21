@@ -2,19 +2,9 @@
 
 angular.module('seriesApp').service('service', function($http) {
 
-  this.getNowSeries = function(callback) {
-    $http.get('/api/now-series').then(callback);
+  this.getSeries = function(callback) {
+    $http.get('/api/get-series').then(callback);
   };
-
-  this.getFutureSeries = function(callback) {
-    $http.get('/api/future-series').then(callback);
-  };
-
-  this.getPastSeries = function(callback) {
-    $http.get('/api/past-series').then(callback);
-  };
-
-
 
   this.updateSeries = function(series) {
     if(!series._id) {

@@ -1,49 +1,29 @@
 <h2>Mina tv-serier</h2>
 <ul>
   Sortera på:
-  <li>Titel</li>
-  <li>Betyg</li>
+  <li ng-click="sort('title')">Titel</li>
+  <li ng-click="sort('grade')">Betyg</li>
 <ul>
-<h3>Ser nu</h3>
-<ul ng-repeat="nowSerie in nowSeries">
-  <!-- <li ng-repeat="nowSerie in nowSeries">{{nowSerie.title}}<button ng-click="nowSerie.editing = true">Redigera</button><button>Ta bort</button></li> -->
-  <li ng-hide="nowSerie.editing"><p>{{nowSerie.title}}</p><button ng-click="nowSerie.editing = true">Redigera</button><button ng-click="deleteSeries(nowSerie, $index)">Ta bort</button></li>
-  <li ng-show="nowSerie.editing">
-    <form ng-submit="saveSeries(nowSerie)">
-       <input type="text" ng-model="nowSerie.title" placeholder="Titel">
-       <input type="text" ng-model="nowSerie.grade" placeholder="Betyg">
-       <input type="text" ng-model="nowSerie.genre" placeholder="Genre">
-       <input type="text" ng-model="nowSerie.channel" placeholder="Kanal">
-       <input type="text" ng-model="nowSerie.status" placeholder="Status">
-       <input type="submit" ng-click="nowSerie.editing = false" value="Spara">
-    </form>
-</li>
-</ul>
-<h3>Vill se</h3>
-<ul ng-repeat="futureSerie in futureSeries">
-  <li ng-hide="futureSerie.editing"><p>{{futureSerie.title}}</p><button ng-click="futureSerie.editing = true">Redigera</button><button>Ta bort</button></li>
-  <li ng-show="futureSerie.editing">
-    <form ng-submit="saveSeries(futureSerie)">
-       <input type="text" ng-model="futureSerie.title" placeholder="Titel">
-       <input type="text" ng-model="futureSerie.grade" placeholder="Betyg">
-       <input type="text" ng-model="futureSerie.genre" placeholder="Genre">
-       <input type="text" ng-model="futureSerie.channel" placeholder="Kanal">
-       <input type="text" ng-model="futureSerie.status" placeholder="Status">
-       <input type="submit" ng-click="futureSerie.editing = false" value="Spara">
-    </form>
+
+
+<div ng-repeat="currentStatus in statuses">
+
+  <h3>{{currentStatus}}</h3>
+
+  <ul ng-repeat="serie in series | orderBy: chosenSorting | filter: {status: currentStatus}">
+  <!-- <ul ng-repeat="serie in filteredSeries = (series | filter: {status: currentStatus})"> -->
+
+    <li ng-hide="serie.editing"><p>{{serie.title}}</p><button ng-click="serie.editing = true">Redigera</button><button ng-click="deleteSeries(serie, getSeriesIndex(serie))">Ta bort</button></li>
+    <li ng-show="serie.editing">
+      <form ng-submit="saveSeries(serie)">
+         <input type="text" ng-model="serie.title" placeholder="Titel">
+         <input type="text" ng-model="serie.grade" placeholder="Betyg">
+         <input type="text" ng-model="serie.genre" placeholder="Genre">
+         <input type="text" ng-model="serie.channel" placeholder="Kanal">
+         <input type="text" ng-model="serie.status" ng-model-options="{updateOn: 'submit'}" placeholder="Status">
+         <input type="submit" ng-click="serie.editing = false" value="Spara">
+      </form>
   </li>
-</ul>
-<h3>Har sett</h3>
-<ul ng-repeat="pastSerie in pastSeries">
-  <li ng-hide="pastSerie.editing"><p>{{pastSerie.title}}</p><button ng-click="pastSerie.editing = true">Redigera</button><button>Ta bort</button></li>
-  <li ng-show="pastSerie.editing">
-    <form ng-submit="saveSeries(pastSerie)">
-       <input type="text" ng-model="pastSerie.title" placeholder="Titel">
-       <input type="text" ng-model="pastSerie.grade" placeholder="Betyg">
-       <input type="text" ng-model="pastSerie.genre" placeholder="Genre">
-       <input type="text" ng-model="pastSerie.channel" placeholder="Kanal">
-       <input type="text" ng-model="pastSerie.status" placeholder="Status">
-       <input type="submit" ng-click="pastSerie.editing = false" value="Spara">
-    </form>
-  </li>
-</ul>
+  </ul>
+
+</div>

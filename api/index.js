@@ -6,33 +6,15 @@ var Serie = require('../models/serie');
 var router = express.Router();
 
 // get current series
-router.get('/now-series', function(req, res) {
-  Serie.find({status: 'Ser nu'}, function(err, nowSeries) {
+
+router.get('/get-series', function(req, res) {
+  Serie.find({}, function(err, series) {
     if (err) {
       return res.status(500).json({ message: err.message });
     }
-    res.json({ nowSeries: nowSeries });
+    res.json({ series: series });
   });
 });
-
-router.get('/future-series', function(req, res) {
-  Serie.find({status: 'Vill se'}, function(err, futureSeries) {
-    if (err) {
-      return res.status(500).json({ message: err.message });
-    }
-    res.json({ futureSeries: futureSeries });
-  });
-});
-
-router.get('/past-series', function(req, res) {
-  Serie.find({status: 'Har sett'}, function(err, pastSeries) {
-    if (err) {
-      return res.status(500).json({ message: err.message });
-    }
-    res.json({ pastSeries: pastSeries });
-  });
-});
-
 
 // add new series
 router.post('/series', function(req, res) {
@@ -41,7 +23,7 @@ router.post('/series', function(req, res) {
     if (err) {
       return res.status(500).json({ err: err.message });
     }
-    res.json({ 'series': new_series, message: 'Series added to db' });
+    res.json({ series: new_series, message: 'Series added to db' });
   });
 });
 

@@ -1,9 +1,9 @@
 <h2>Lägg till tv-serie</h2>
-<form ng-submit="saveSeries(series)">
-   <input type="text" ng-model="series.title" placeholder="Titel">
-   <input type="text" ng-model="series.grade" placeholder="Betyg">
-   <input type="text" ng-model="series.genre" placeholder="Genre">
-   <input type="text" ng-model="series.channel" placeholder="Kanal">
-   <input type="text" ng-model="series.status" placeholder="Status">
+<form ng-submit="saveSeries(newSeries)" class="form-add-series">
+   <input type="text" ng-model="newSeries.title" placeholder="Titel">
+   <input type="text" ng-model="newSeries.grade" placeholder="Betyg">
+   <input type="text" ng-model="newSeries.genre" placeholder="Genre">
+   <input type="text" ng-model="newSeries.channel" placeholder="Kanal">
+   <input type="text" ng-model="newSeries.status" placeholder="Status">
    <input type="submit" value="Spara">
 </form>
