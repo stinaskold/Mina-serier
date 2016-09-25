@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var serieSchema = new mongoose.Schema({
 	title: String,
-	grade: Number,
+	grade: mongoose.Schema.Types.Mixed,
 	genre: String,
 	channel: String,
 	status: String

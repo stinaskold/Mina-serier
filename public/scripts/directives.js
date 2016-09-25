@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('seriesApp').directive('seriesDirective', function seriesDirective () {
+angular.module('seriesApp').directive('seriesForm', function () {
 	return {
-		templateUrl: '',
+		templateUrl: './templates/form.html',
 		replace: true,
 		controller: 'seriesCtrl'
 	}

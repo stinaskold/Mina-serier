@@ -1,27 +1,32 @@
 <h2>Mina tv-serier</h2>
-<ul>
+<ul class="sorting">
   Sortera på:
-  <li ng-click="sort('title')">Titel</li>
-  <li ng-click="sort('grade')">Betyg</li>
-<ul>
+  <li><a href="" ng-click="sorting = 'title'; reverse=false">Titel</a></li>
+  <li><a href="" ng-click="sorting = 'grade'; reverse=true">Betyg</a></li>
+</ul>
 
 
-<div ng-repeat="currentStatus in statuses">
+<div ng-repeat="currentStatus in statuses" class="div-show-series">
 
   <h3>{{currentStatus}}</h3>
 
-  <ul ng-repeat="serie in series | orderBy: chosenSorting | filter: {status: currentStatus}">
+  <ul ng-repeat="serie in series | orderBy: sorting: reverse | filter: {status: currentStatus}">
   <!-- <ul ng-repeat="serie in filteredSeries = (series | filter: {status: currentStatus})"> -->
 
-    <li ng-hide="serie.editing"><p>{{serie.title}}</p><button ng-click="serie.editing = true">Redigera</button><button ng-click="deleteSeries(serie, getSeriesIndex(serie))">Ta bort</button></li>
+    <li ng-hide="serie.editing"><p class="series-title">{{serie.title}}</p><button class="btn btn-info" ng-click="serie.editing = true">Redigera</button><button class="btn btn-danger" ng-click="deleteSeries(serie, getSeriesIndex(serie))">Ta bort</button></li>
     <li ng-show="serie.editing">
-      <form ng-submit="saveSeries(serie)">
+    <!-- <series-form></series-form>   -->
+      <form class="form-show-series" ng-submit="saveSeries(serie)">
          <input type="text" ng-model="serie.title" placeholder="Titel">
-         <input type="text" ng-model="serie.grade" placeholder="Betyg">
          <input type="text" ng-model="serie.genre" placeholder="Genre">
          <input type="text" ng-model="serie.channel" placeholder="Kanal">
-         <input type="text" ng-model="serie.status" ng-model-options="{updateOn: 'submit'}" placeholder="Status">
-         <input type="submit" ng-click="serie.editing = false" value="Spara">
+         <select class="select-style" ng-model="serie.status" ng-options="s for s in statuses" required>
+           <option value="" disabled selected ng-hide="statuses">Välj status</option>
+         </select>
+         <select class="select-style" ng-model="serie.grade" ng-options="g for g in grades" required>
+           <option value="" disabled selected ng-hide="grades">Välj betyg</option>
+         </select>
+         <input class="btn btn-success" type="submit" ng-click="serie.editing = false" value="Spara">
       </form>
   </li>
   </ul>

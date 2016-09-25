@@ -5,8 +5,7 @@ var Serie = require('../models/serie');
 
 var router = express.Router();
 
-// get current series
-
+// get series
 router.get('/get-series', function(req, res) {
   Serie.find({}, function(err, series) {
     if (err) {
@@ -23,7 +22,7 @@ router.post('/series', function(req, res) {
     if (err) {
       return res.status(500).json({ err: err.message });
     }
-    res.json({ series: new_series, message: 'Series added to db' });
+    res.json({ 'series': new_series, message: 'Series added to db' });
   });
 });
 
