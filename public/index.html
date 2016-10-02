@@ -3,19 +3,16 @@
 <head>
 	<title>Mina serier</title>
   <meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
 	<div ng-controller="seriesCtrl" class="row-centered">
-    <h1>Mina serier</h1>
-    <ul>
-      <li><a href="#/my-series">Mina tv-serier</a></li>
-      <li><a href="#/add-series">Lägg till tv-serie</a></li>
-      <li>Sök</li>
-    </ul>
+		<!-- Show header -->
+		<series-header></series-header>
 		<div class="main-content col-centered">
+		<!-- Show templates -->
 			<div ng-view></div>
 		</div>
 	</div>

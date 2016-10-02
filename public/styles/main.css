@@ -18,11 +18,27 @@ body {
 .main-content {
   text-align: left;
   margin-top: 100px;
+  background-color: #e3e7ea;
+  width: 1200px;
+  padding: 50px 0;
+  text-align: center;
 }
 
 h1 {
   font-family: 'Pacifico', sans-serif;
   font-size: 6em;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  padding: 15px;
+  font-family: 'Pacifico', sans-serif;
 }
 
 ul {
@@ -45,13 +61,29 @@ button {
   margin: 5px;
 }
 
+.nav-menu li {
+  font-size: 16px;
+  display: inline-block;
+}
+
+.sorting {
+  margin-top: -80px;
+}
+
 .sorting li {
   margin-left: 20px;
   padding-right: 0;
 }
 
 .div-show-series {
-  margin-top: 50px;
+  margin-top: 20px;
+  padding-bottom: 50px;
+  background-color: #e3e7ea;
+  border-bottom: 3px solid #FFF;
+}
+
+.div-show-series:last-child {
+  border-bottom: 0;
 }
 
 .div-show-series input, .div-show-series select {
@@ -64,7 +96,14 @@ button {
 }
 
 .div-add-series {
-  margin-top: 40px;
+  margin-top: 20px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.div-add-series .btn-success {
+  width: 80px;
+  margin: 0 auto;
 }
 
 .div-add-series input, .div-add-series select {

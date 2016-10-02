@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('seriesApp').directive('seriesForm', function () {
+// Directive to show header 
+angular.module('seriesApp').directive('seriesHeader', function () {
 	return {
-		templateUrl: './templates/form.html',
-		replace: true,
+		templateUrl: './templates/header.html',
 		controller: 'seriesCtrl'
 	}
 });

@@ -1,5 +1,6 @@
 'use strict';
 
+// Show templates
 angular.module('seriesApp').config(function($routeProvider) {
     $routeProvider.when('/my-series', {
         templateUrl : './templates/my-series/index.html'

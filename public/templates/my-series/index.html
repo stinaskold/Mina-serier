@@ -1,4 +1,3 @@
-<h2>Mina tv-serier</h2>
 <ul class="sorting">
   Sortera på:
   <li><a href="" ng-click="sorting = 'title'; reverse=false">Titel</a></li>
@@ -11,11 +10,9 @@
   <h3>{{currentStatus}}</h3>
 
   <ul ng-repeat="serie in series | orderBy: sorting: reverse | filter: {status: currentStatus}">
-  <!-- <ul ng-repeat="serie in filteredSeries = (series | filter: {status: currentStatus})"> -->
 
     <li ng-hide="serie.editing"><p class="series-title">{{serie.title}}</p><button class="btn btn-info" ng-click="serie.editing = true">Redigera</button><button class="btn btn-danger" ng-click="deleteSeries(serie, getSeriesIndex(serie))">Ta bort</button></li>
     <li ng-show="serie.editing">
-    <!-- <series-form></series-form>   -->
       <form class="form-show-series" ng-submit="saveSeries(serie)">
          <input type="text" ng-model="serie.title" placeholder="Titel">
          <input type="text" ng-model="serie.genre" placeholder="Genre">

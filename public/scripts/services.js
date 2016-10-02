@@ -1,5 +1,6 @@
 'use strict';
 
+// Service to handle http requests
 angular.module('seriesApp').service('service', function($http) {
 
   this.getSeries = function(callback) {
@@ -8,7 +9,9 @@ angular.module('seriesApp').service('service', function($http) {
 
   this.updateSeries = function(series) {
     if(!series._id) {
-      $http.post('/api/series', series);
+      $http.post('/api/series', series).then(function() {
+        window.location = '/';
+      });
     } else {
       $http.put('/api/series/' + series._id, series).then(function(result) {
         return result.data.series;
